@@ -1,0 +1,31 @@
+page-profile {
+  ion-content {
+    margin: 2rem 0;
+
+    ion-title {
+      .toolbar-title-md {
+        color: map-get($colors, foreground) !important;
+        padding-bottom: 20px;
+      }
+    }
+
+    .content-picture-size {
+      border-radius: 50%;
+      width: 12rem;
+      height: 12rem;
+      overflow: hidden;
+    }
+
+    .content-name {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .change-pass {
+      ion-icon {
+        margin: 0 1rem;
+      }
+    }
+
+  }
+}

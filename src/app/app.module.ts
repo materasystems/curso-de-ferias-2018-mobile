@@ -9,19 +9,23 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular'
 // COMPONENTS - INICIO
 import {MyApp} from './app.component'
 import {HeaderComponent} from "./components/shared/header/header.component"
-import {HomePage} from './pages/home/home'
 // COMPONENTS - FIM
 
 // PAGES - INICIO
+import {HomePage} from './pages/home/home'
+import {ProfilePage} from './pages/profile/profile.component'
 // PAGES - FIM
+
 // SERVICES - INCIO
+import {UserService} from "./providers/user.service"
 // SERVICES - FIM
 
 @NgModule({
   declarations: [
     MyApp,
     HeaderComponent,
-    HomePage
+    HomePage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -31,11 +35,13 @@ import {HomePage} from './pages/home/home'
   entryComponents: [
     MyApp,
     HeaderComponent,
-    HomePage
+    HomePage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

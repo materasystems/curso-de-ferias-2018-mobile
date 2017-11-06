@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="shadow_under top_toolbar">
+    <component-header></component-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title text-center color="foreground">MEU PERFIL</ion-title>
+
+  <div text-center>
+    <img [src]="user.urlFoto" class="avatar-50 content-picture-size"/>
+  </div>
+
+  <div text-center>
+    <ion-label class="content-name">{{user.nome}}</ion-label>
+    <ion-label>{{user.email}}</ion-label>
+    <ion-label>Login: {{user.login}}</ion-label>
+
+    <button ion-button color="primary" clear class="change-pass">
+      <ion-icon name="key"></ion-icon>
+      Alterar senha
+    </button>
+  </div>
+
+</ion-content>
