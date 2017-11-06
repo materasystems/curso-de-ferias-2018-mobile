@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/Observable";
+import {Injectable} from "@angular/core"
+import {Observable} from "rxjs/Observable"
 
-import {User} from '../models/User';
-import {Subscriber} from "rxjs/Subscriber";
+import {User} from '../models/User'
+import {Subscriber} from "rxjs/Subscriber"
 
 @Injectable()
 export class UserService {
