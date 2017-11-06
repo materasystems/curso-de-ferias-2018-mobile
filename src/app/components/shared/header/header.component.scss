@@ -1,0 +1,41 @@
+component-header {
+  .item-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  ion-item {
+    background: none !important;
+    padding-left: 5px;
+
+    .picture-profile {
+      border-radius: 50%;
+      margin-top: -8px;
+      overflow: hidden;
+      width: 6rem;
+      height: 6rem;
+    }
+
+    ion-icon {
+      font-size: 4.5rem;
+      margin: 0 7px 0 0;
+    }
+
+    .item-inner {
+      margin-left: 0;
+      border-bottom: 0 !important;
+      margin-top: -6px;
+      padding: 0;
+
+      h2 {
+        margin: 2px 0;
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+}
