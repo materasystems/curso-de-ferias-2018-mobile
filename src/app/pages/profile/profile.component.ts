@@ -17,7 +17,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
               private _userService: UserService) {
 
-    _userService.getLogedUser()((data) => {
+    _userService.getLogedUser().subscribe((data) => {
       this.user = data;
     });
   }
