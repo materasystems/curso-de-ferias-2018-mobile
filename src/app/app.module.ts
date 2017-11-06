@@ -14,10 +14,12 @@ import {HeaderComponent} from "./components/shared/header/header.component"
 // PAGES - INICIO
 import {HomePage} from './pages/home/home'
 import {ProfilePage} from './pages/profile/profile.component'
+import {ChangePasswordPage} from "./pages/profile/change-password/change-password"
 // PAGES - FIM
 
 // SERVICES - INCIO
 import {UserService} from "./providers/user.service"
+import {AccountService} from "./providers/account.service"
 // SERVICES - FIM
 
 @NgModule({
@@ -25,7 +27,8 @@ import {UserService} from "./providers/user.service"
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage
+    ProfilePage,
+    ChangePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -36,12 +39,14 @@ import {UserService} from "./providers/user.service"
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage
+    ProfilePage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     UserService,
+    AccountService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
