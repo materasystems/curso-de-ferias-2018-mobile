@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core"
 import {NavController} from 'ionic-angular'
 import {FormGroup, Validators, FormControl} from '@angular/forms'
 
-import {User} from '../../../models/User'
+import {User} from '../../../models/user'
 import {AccountService} from '../../../providers/account.service'
 import {UserService} from '../../../providers/user.service'
 import {ProfilePage} from '../profile.component'
@@ -17,12 +17,10 @@ export class ChangePasswordPage implements OnInit {
   public user: User;
 
   constructor(public navCtrl: NavController,
-              private _accountService: AccountService,
-              private _userService: UserService) {
+              private accountService: AccountService,
+              private userService: UserService) {
 
-    _userService.getLogedUser().subscribe((data) => {
-      this.user = data;
-    });
+    this.user = userService.getLoggedUser();
   }
 
   ngOnInit() {
@@ -38,6 +36,6 @@ export class ChangePasswordPage implements OnInit {
   }
 
   change() {
-    this._accountService.changePassword(this.changePasswordForm.value);
+    this.accountService.changePassword(this.changePasswordForm.value);
   }
 }

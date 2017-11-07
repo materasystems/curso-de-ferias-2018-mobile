@@ -1,22 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {UserService} from "../../../providers/user.service";
 
 @Component({
   selector: 'component-header',
   templateUrl: 'header.component.html'
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public user: any;
 
-  constructor() {
-  }
-
-  ngOnInit() {
-    this.user = {
-      nome: "Admin",
-      perfil: "Administrador",
-      urlFoto: './assets/images/profile.jpg'
-    }
+  constructor(userService: UserService) {
+    this.user = userService.getLoggedUser();
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component} from "@angular/core"
 import {NavController, ToastController} from "ionic-angular"
 
-import {User} from '../../../models/User'
+import {User} from '../../../models/user'
 import {UserService} from '../../../providers/user.service'
 import {CameraService} from '../../../providers/camera.service'
 import {ProfilePage} from '../profile.component'
@@ -17,18 +17,15 @@ export class ChangePhotoPage {
 
   constructor(public navCtrl: NavController,
               private toastCtrl: ToastController,
-              private _userService: UserService,
-              private _cameraService: CameraService) {
+              private userService: UserService,
+              private cameraService: CameraService) {
 
-    _userService.getLogedUser().subscribe((data) => {
-      this.user = data;
-    });
-
+    this.user = userService.getLoggedUser();
     this.base64Image = null;
   }
 
   takePicture(): void {
-    this._cameraService.takePicture({}).then(data => this.base64Image = data,
+    this.cameraService.takePicture({}).then(data => this.base64Image = data,
       error => {
         let toast = this.toastCtrl.create({message: error, duration: 3000});
         toast.present();

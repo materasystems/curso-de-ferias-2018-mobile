@@ -1,25 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <ion-row style="height: 71px!important;">
-      <ion-col col-1 class="item-menu">
-        <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-      </ion-col>
-
-      <ion-col col-11>
-        <ion-item class="padding-person">
-          <ion-avatar item-left>
-            <div class="header-picture avatar-50">
-              <img class="header-picture-profile" id="img-user-header" [src]="user.urlFoto"/>
-            </div>
-          </ion-avatar>
-          <h2 class="header-person-name">{{user.nome}}</h2>
-          <p class="color-primary">{{user.perfil}}</p>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-navbar>
+  <ion-toolbar class="shadow_under top_toolbar">
+    <component-header></component-header>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="background-primary">
