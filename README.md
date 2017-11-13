@@ -7,11 +7,14 @@
 ![Ionic 3](https://img.shields.io/badge/ionic-3.x.x-blue.svg)
 
 ### Inicialização do projeto:
+
 ```bash
 $ sudo npm install -g ionic cordova
 $ ionic start projectName sidemenu
 ```
+
 Then, to run it, cd into `projectName` and run:
+
 ```bash
 $ ionic lab or ionic start to run into your brownser
 $ ionic cordova platform add <ios | android>
@@ -19,7 +22,9 @@ $ ionic cordova run <ios | android>
 ```
 
 ###Introdução
+
 * O que é um Framework (JavaScript)?
+
 * O que é o Angular (E TypeScript)?
  
     Antes de entender o que é Angular é preciso entender o que seja o TypeScript, que foi adotado desde a versão 2 do Framework.
