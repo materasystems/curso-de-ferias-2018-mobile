@@ -21,7 +21,7 @@ $ ionic cordova platform add <ios | android>
 $ ionic cordova run <ios | android>
 ```
 
-###Introdução
+### Introdução
 
 * O que é um Framework (JavaScript)?
 
@@ -67,7 +67,7 @@ Entendendo o que seja o Angular e como ele se relaciona com os Componentes, pode
 
 No Angular tudo é centrado no Component. Conforme você pode analisar mais ao centro do diagrama o componente angular é definido por meio de um Metadata​, que nada mais é que aquele objeto {} definido dentro do decorador @Component​. Este mesmo componente possui um Template​ e a comunicação de dados entre a parte lógica do Componente e o Template é realizada por meio de Property Bindings, ou Ligação por meio de propriedades.
 
-#####Diretivas
+##### Diretivas
 
 O Angular também possui um recurso “mágico” para utilizar na camada de View, que são as Diretivas, que são atributos HTML especiais que aceitam um certo grau de lógica de programação na camada do template.
 
@@ -89,7 +89,7 @@ Alguns exemplos são:
 
   `<input [(​ngModel​)]​="userName">`
 
-#####Services
+##### Services
 
 Services são basicamente classes Singleton, que é um padrão de software (do inglês Design Pattern), garantindo a instância única de uma classe, para assim ter um ponto global de acesso ao objeto. 
 
@@ -110,7 +110,7 @@ A injeção de Service dentro do Componente é feito por meio do
  
  `constructor(private service: MyService){}`
  
-#####Node
+##### Node
 
 Em linhas gerais o node.js é uma plataforma escrita em javascript feita para rodar código javascript. Em uma simples analogia, o Node.js seria a soma do PHP+Apache. é importante frisar que o Node.js roda código javascript apenas no lado do servidor.
 Utilizaremos o node aqui não para criar API's ou renderizar HTML no lado do servidor. Iremos utilizar o node como ferramenta principal para desenvolvimento. Por meio dele vamos instalar a linha de comando do angular e executar nossa aplicação localmente.
@@ -119,11 +119,11 @@ Utilizaremos o node aqui não para criar API's ou renderizar HTML no lado do ser
 
 [Link para download](https://nodejs.org/en/download/)
 
-#####NPM
+##### NPM
 
 NPM​ vem de Node Package Manager ou gerenciador de pacotes do Node. O NPM é distribuído juntamente com a plataforma do node e é por meio dele que iremos instalar todas nossas dependências de desenvolvimento e bibliotecas.
 
-#####Angular CLI
+##### Angular CLI
 
 Uma vez instalado o Node/NPM, precisamos instalar a interface de linha de comando do Angular. Agora sim vamos começar de fato a trabalhar com node, pelo gerenciador de pacotes npm
 
@@ -133,7 +133,7 @@ Uma vez instalado o Node/NPM, precisamos instalar a interface de linha de comand
 * O que é o Ionic?
 * Desenvolvimento Híbrido X Desenvolvimento Nativo
 
-###Iniciando um projeto Ionic
+### Iniciando um projeto Ionic
 * Preparação do ambiente
 * Instalação 
 
@@ -149,14 +149,14 @@ Uma vez instalado o Node/NPM, precisamos instalar a interface de linha de comand
 
 _(Step-02)_
 
-###Conectando ao back-end
+### Conectando ao back-end
 * O que é REST?
 * O que é API?
 * Como fazer uma aplicação “consumir” uma APi REST?
 
  _(Step-03)_
 
-###Tópicos avançados
+### Tópicos avançados
 * Como estruturar as pastas da minha aplicação?
 * Boas práticas no uso de web-components e flexbox
 * Utilizando recursos nativos do dispositivo
