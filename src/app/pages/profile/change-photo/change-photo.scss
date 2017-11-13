@@ -1,0 +1,134 @@
+change-photo {
+  ion-header {
+    .item-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .padding-person {
+      top: 0px;
+    }
+
+    .header-picture {
+      margin-top: -8px;
+      width: 6rem;
+      height: 6rem;
+      overflow: hidden;
+    }
+
+    .header-picture-profile {
+      width: unset !important;
+      height: unset !important;
+    }
+
+    ion-item {
+      background: none !important;
+      padding-left: 5px;
+
+      ion-icon {
+        font-size: 4.5rem;
+        margin: 0 7px 0 0 !important;
+      }
+
+      .item-inner {
+        margin-left: 0 !important;
+        border-bottom: 0 !important;
+        margin-top: -6px !important;
+
+        h2 {
+          margin: 2px 0 !important;
+          font-size: 1.3rem !important;
+        }
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  ion-content {
+    margin: 2rem 0;
+
+    .scroll-content {
+      margin-top: 15% !important;
+    }
+
+    ion-title {
+      .toolbar-title-md {
+        color: map-get($colors, light) !important;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: whitesmoke;
+    }
+
+    .grid-layout {
+      display: -webkit-flex;
+      -webkit-flex-direction: column;
+      height: 100%;
+      max-width: 38rem;
+      max-height: 42rem;
+
+      .row-center {
+        display: flex;
+        justify-content: center;
+      }
+
+      .row-container {
+        -webkit-flex: 1;
+      }
+
+      .icon-document {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 5rem;
+      }
+
+      .button-camera {
+        background-color: white;
+        width: 100%;
+        border-radius: 6px;
+        height: 10rem;
+      }
+
+      .image-profile {
+        overflow: hidden;
+        background-size: cover;
+        height: 100% !important;
+        width: 100% !important;
+      }
+
+      .col-profile {
+        height: 100% !important;
+      }
+
+    }
+
+    .button-next {
+      width: 100%
+    }
+
+    .background-white {
+      background-color: #ffffff;
+    }
+
+    .body-image {
+      width: 100%;
+      height: 85%;
+      background-size: cover;
+      border: 0.5rem solid #fff;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .body-footer {
+      width: 100%;
+      height: 12%;
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+  }
+
+}

@@ -1,8 +1,9 @@
 import {Component} from '@angular/core'
 import {NavController} from 'ionic-angular'
-import {User} from '../../models/User'
+import {User} from '../../models/user'
 import {UserService} from '../../providers/user.service'
 import {ChangePasswordPage} from "./change-password/change-password"
+import {ChangePhotoPage} from "./change-photo/change-photo"
 
 
 @Component({
@@ -14,15 +15,17 @@ export class ProfilePage {
   public user: User;
 
   constructor(public navCtrl: NavController,
-              private _userService: UserService) {
+              private userService: UserService) {
 
-    _userService.getLogedUser().subscribe((data) => {
-      this.user = data;
-    });
+    this.user = this.userService.getLoggedUser();
   }
 
   changePass() {
     this.navCtrl.setRoot(ChangePasswordPage);
+  }
+
+  changePhoto() {
+    this.navCtrl.setRoot(ChangePhotoPage);
   }
 
 }

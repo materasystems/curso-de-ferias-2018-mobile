@@ -6,11 +6,9 @@
 
 <ion-content>
   <ion-title text-center color="foreground">MEU PERFIL</ion-title>
-
-  <div text-center>
+  <div text-center (click)=changePhoto()>
     <img [src]="user.urlFoto" class="avatar-50 content-picture-size"/>
   </div>
-
   <div text-center>
     <ion-label class="content-name">{{user.nome}}</ion-label>
     <ion-label>{{user.email}}</ion-label>
