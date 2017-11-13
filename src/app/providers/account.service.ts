@@ -5,8 +5,4 @@ export class AccountService {
 
   constructor() {
   }
-
-  changePassword(request) {
-
-  }
 }

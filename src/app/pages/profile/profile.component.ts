@@ -2,7 +2,6 @@ import {Component} from '@angular/core'
 import {NavController} from 'ionic-angular'
 import {User} from '../../models/user'
 import {UserService} from '../../providers/user.service'
-import {ChangePasswordPage} from "./change-password/change-password"
 
 @Component({
   selector: 'page-profile',
@@ -16,10 +15,6 @@ export class ProfilePage {
               private userService: UserService) {
 
     this.user = this.userService.getLoggedUser();
-  }
-
-  changePass() {
-    this.navCtrl.setRoot(ChangePasswordPage);
   }
 
 }

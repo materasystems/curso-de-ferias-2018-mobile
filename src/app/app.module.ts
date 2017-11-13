@@ -12,7 +12,6 @@ import {HeaderComponent} from "./components/shared/header/header.component"
 // PAGES
 import {HomePage} from './pages/home/home'
 import {ProfilePage} from './pages/profile/profile.component'
-import {ChangePasswordPage} from "./pages/profile/change-password/change-password"
 
 // SERVICES
 import {UserService} from "./providers/user.service"
@@ -24,8 +23,7 @@ import {AccountService} from "./providers/account.service"
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage,
-    ChangePasswordPage
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -36,8 +34,7 @@ import {AccountService} from "./providers/account.service"
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage,
-    ChangePasswordPage
+    ProfilePage
   ],
   providers: [
     StatusBar,
