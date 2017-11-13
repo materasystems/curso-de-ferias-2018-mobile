@@ -23,15 +23,15 @@ $ ionic cordova run <ios | android>
 
 ### Introdução
 
-* O que é um Framework (JavaScript)?
+* **O que é um Framework (JavaScript)?**
 
-* O que é o Angular (E TypeScript)?
+* **O que é o Angular (E TypeScript)?**
  
   Antes de entender o que é Angular é preciso entender o que seja o TypeScript, que foi adotado desde a versão 2 do Framework.
   
   O TypeScript possibilita que você escreva código JavaScript na forma que foi acostumado quando aprendeu Orientação a Objetos. Assim é possível criar métodos que retornem um valor com tipo definido. 
   
-  No final, TypeScript pega o seu código cheio de classes e transforma em JavaScript puro, no qual o browser vai compreender. No próprio site é definido que o TypeScript compila para JavaScript, o que é um termo tecnicamente errado – mas cada vez mais aceito, dado que aquele código “malucão” em JavaScript pode ser encarado como código de máquina.
+  No final, TypeScript pega o seu código cheio de classes e transforma em JavaScript puro, no qual o browser vai compreender. No próprio site é definido que o TypeScript compila para JavaScript, o que é um termo **tecnicamente errado** – mas cada vez mais aceito, dado que aquele código “malucão” em JavaScript pode ser encarado como código de máquina.
   
   Agora voltando para as aplicações Angular, elas são feitas a partir de um conjunto de web components. Um web componente é a combinação de estilo CSS + template HTML + classe javascript que irá dizer ao Angular como controlar uma parte da aplicação.
   
@@ -91,11 +91,11 @@ $ ionic cordova run <ios | android>
   
   #### Services
   
-  Services são basicamente classes Singleton, que é um padrão de software (do inglês Design Pattern), garantindo a instância única de uma classe, para assim ter um ponto global de acesso ao objeto. 
+  Services são basicamente classes _Singleton_, que é um padrão de software (do inglês _Design Pattern_), garantindo a instância única de uma classe, para assim ter um ponto global de acesso ao objeto. 
   
   Basicamente, o service serve para “guardar a lógica do negócio”, consumindo os end-points da API e retornando ou enviando os dados de acordo com a requisição vinda do componente.
   
-  Para criar um serviço no Angular, basta criar uma Classe e decorá-la com o decorador @Injectable(), como por exemplo:
+  Para criar um serviço no Angular, basta criar uma Classe e decorá-la com o decorador `@Injectable()`, como por exemplo:
   
   ``` typescript
   @Injectable()
@@ -129,9 +129,18 @@ $ ionic cordova run <ios | android>
   
     `npm i -g @angular/cli@latest`
 
-* O que é SPA e como se comporta?
-* O que é o Ionic?
-* Desenvolvimento Híbrido X Desenvolvimento Nativo
+* **O que é SPA e como se comporta?**
+  
+  Como conceito mais básico e simplista do Single Page Application (SPA), podemos dizer que trata-se de uma aplicação que não faz refresh no navegador ao mudar de página. 
+  
+  O SPA é uma tecnologia denominada de Client-Side, ou seja, todos os processos estão sendo executados no lado do cliente, ou seja no navegador do usuário. (Com exceção de alguns processos realizados com outras tecnologias, como o React, que permite renderizar no lado servidor)
+  
+  A comunicação com o back-end se dá através de chamadas Ajax para os end-points específicos de uma API, e é exatamente nesse momento que as aplicações SPA mostram todo o seu brilho, pois uma aplicação SPA bem feita é agnóstica ao back-end, não sabendo e não se importando se a aplicação foi feita em Node, PHP, Java, Ruby, Python, Go, Elixir, ou qualquer outra linguagem. 
+  
+  O router é uma peça importantíssima no modelo de desenvolvimento de SPAs. É ele que define/constrói a tela para o usuário, permitindo que, mesmo após um refresh, a página volte ao seu estado anterior ou a um estado próximo disso É muito comum salvar informações localmente no navegador do usuário (O desenvolvimento mobile híbrido segue uma lógica parecida). Em geral é armazenado um token ou qualquer informação que possa identificar o usuário e sua máquina, fazendo do localStorage. 
+
+* **O que é o Ionic?**
+* **Desenvolvimento Híbrido X Desenvolvimento Nativo**
 
 ### Iniciando um projeto Ionic
 * Preparação do ambiente
