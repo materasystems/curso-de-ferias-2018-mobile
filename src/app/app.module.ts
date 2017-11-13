@@ -7,20 +7,14 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular'
 
 // COMPONENTS
 import {MyApp} from './app.component'
-import {HeaderComponent} from "./components/shared/header/header.component"
 
 // PAGES
 import {HomePage} from './pages/home/home'
-
-// SERVICES
-import {UserService} from "./providers/user.service"
-import {AccountService} from "./providers/account.service"
 
 // MODULES
 @NgModule({
   declarations: [
     MyApp,
-    HeaderComponent,
     HomePage
   ],
   imports: [
@@ -30,14 +24,11 @@ import {AccountService} from "./providers/account.service"
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HeaderComponent,
     HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    UserService,
-    AccountService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
