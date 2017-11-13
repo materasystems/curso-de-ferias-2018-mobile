@@ -1,5 +1,6 @@
 import {Component} from "@angular/core"
 import {NavController, ToastController} from "ionic-angular"
+import {Camera} from '@ionic-native/camera';
 
 import {User} from '../../../models/user'
 import {UserService} from '../../../providers/user.service'
@@ -10,6 +11,7 @@ import {ProfilePage} from '../profile.component'
   templateUrl: "change-photo.html",
   selector: "change-photo"
 })
+
 export class ChangePhotoPage {
 
   base64Image: string;
@@ -20,7 +22,8 @@ export class ChangePhotoPage {
               private userService: UserService,
               private cameraService: CameraService) {
 
-    this.user = userService.getLoggedUser();
+
+    this.user = this.userService.getLoggedUser();
     this.base64Image = null;
   }
 
@@ -51,10 +54,8 @@ export class ChangePhotoPage {
     this.takePicture();
   }
 
-  //cancelar para voltar para o página do perfil
   cancelAction() {
     this.navCtrl.setRoot(ProfilePage);
   }
-
 
 }

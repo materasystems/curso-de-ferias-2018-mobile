@@ -17,7 +17,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
               private userService: UserService) {
 
-    this.user = userService.getLoggedUser();
+    this.user = this.userService.getLoggedUser();
   }
 
   changePass() {
