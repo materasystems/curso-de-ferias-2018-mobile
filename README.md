@@ -1,6 +1,10 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+[Documentação do Ionic](http://ionicframework.com/docs/)
 
-## How to use this template
+## Curso de Férias de Desenvolvimento Mobile
+![Node 6](https://img.shields.io/badge/node-6.x.x-green.svg)
+![NPM 3](https://img.shields.io/badge/npm-3.x.x-orange.svg)
+![Angular 4](https://img.shields.io/badge/angular-4.x.x-red.svg)
+![Ionic 3](https://img.shields.io/badge/ionic-3.x.x-blue.svg)
 
 *This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
 
