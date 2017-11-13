@@ -11,7 +11,6 @@ import {HeaderComponent} from "./components/shared/header/header.component"
 
 // PAGES
 import {HomePage} from './pages/home/home'
-import {ProfilePage} from './pages/profile/profile.component'
 
 // SERVICES
 import {UserService} from "./providers/user.service"
@@ -22,8 +21,7 @@ import {AccountService} from "./providers/account.service"
   declarations: [
     MyApp,
     HeaderComponent,
-    HomePage,
-    ProfilePage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -33,8 +31,7 @@ import {AccountService} from "./providers/account.service"
   entryComponents: [
     MyApp,
     HeaderComponent,
-    HomePage,
-    ProfilePage
+    HomePage
   ],
   providers: [
     StatusBar,
