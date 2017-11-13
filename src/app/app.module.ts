@@ -1,31 +1,31 @@
-// DEPENDENCES - INICIO
+// DEPENDENCES
 import {BrowserModule} from '@angular/platform-browser'
 import {ErrorHandler, NgModule} from '@angular/core'
 import {StatusBar} from '@ionic-native/status-bar'
 import {SplashScreen} from '@ionic-native/splash-screen'
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular'
-// DEPENDENCES - FIM
 
-// COMPONENTS - INICIO
+// COMPONENTS
 import {MyApp} from './app.component'
 import {HeaderComponent} from "./components/shared/header/header.component"
-// COMPONENTS - FIM
 
-// PAGES - INICIO
+// PAGES
 import {HomePage} from './pages/home/home'
 import {ProfilePage} from './pages/profile/profile.component'
-// PAGES - FIM
+import {ChangePasswordPage} from "./pages/profile/change-password/change-password"
 
-// SERVICES - INCIO
+// SERVICES
 import {UserService} from "./providers/user.service"
-// SERVICES - FIM
+import {AccountService} from "./providers/account.service"
 
+// MODULES
 @NgModule({
   declarations: [
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage
+    ProfilePage,
+    ChangePasswordPage
   ],
   imports: [
     BrowserModule,
@@ -36,12 +36,14 @@ import {UserService} from "./providers/user.service"
     MyApp,
     HeaderComponent,
     HomePage,
-    ProfilePage
+    ProfilePage,
+    ChangePasswordPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     UserService,
+    AccountService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
