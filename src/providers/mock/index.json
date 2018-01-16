@@ -1,47 +1,64 @@
 {
-  "users": [
+  "usuario": [
     {
       "id": "1",
-      "name": "Hygor",
-      "imageUrl": "assets/imgs/avatar/default.png",
-      "username": "hygor",
-      "password": "123456",
-      "ative": true
+      "nome": "Hygor",
+      "email": "hygor.zorak@matera.com",
+      "login": "hygor",
+      "senha": "123456",
+      "perfil": "ALUNO",
+      "urlFoto": "assets/imgs/avatar/default.png"
     },
     {
       "id": "2",
-      "name": "Flavia",
-      "imageUrl": "assets/imgs/avatar/default.png",
-      "username": "flavia",
-      "password": "123456",
-      "ative": true
+      "nome": "Flavia",
+      "email": "flavia.domingues@matera.com",
+      "login": "flavia",
+      "senha": "123456",
+      "perfil": "ALUNO",
+      "urlFoto": "assets/imgs/avatar/default.png"
     }
   ],
-  "classes": [
+  "disciplina": [
     {
       "id": "1",
-      "name": "ionic"
+      "descricao": "Angular",
+      "instrutores": ["1", "2"],
+      "dataInicio": "2018/01/22",
+      "dataTermino": "2018/02/02",
+      "segmento": "Front-end",
+      "urlLogo": null
     },
     {
       "id": "2",
-      "name": "angular"
+      "descricao": "Ionic",
+      "instrutores": ["1", "2"],
+      "dataInicio": "2018/01/22",
+      "dataTermino": "2018/02/02",
+      "segmento": "Mobile",
+      "urlLogo": null
     },
     {
       "id": "3",
-      "name": "java"
+      "descricao": "Java",
+      "instrutores": ["1", "2"],
+      "dataInicio": "2018/01/22",
+      "dataTermino": "2018/02/02",
+      "segmento": "Backend",
+      "urlLogo": null
     }
   ],
-  "presence": [
+  "presenca": [
     {
-      "day": "2017/01/22",
-      "class": "1",
-      "student": "1"
+      "dia": "2017/01/22",
+      "disciplina": "1",
+      "usuario": "1"
     }
   ],
   "config": [
     {
-      "use": "1",
-      "notification": false
+      "usuario": "1",
+      "notificacao": false
     }
   ]
 }
