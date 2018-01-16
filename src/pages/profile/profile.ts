@@ -4,9 +4,9 @@ import { IonicPage } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: "page-home",
-  templateUrl: "home.html"
+  selector: "profile-page",
+  templateUrl: "profile.html"
 })
-export class HomePage {
+export class ProfilePage {
   constructor(public navCtrl: NavController) {}
 }
