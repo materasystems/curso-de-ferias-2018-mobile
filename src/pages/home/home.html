@@ -7,12 +7,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-row>
+    <ion-col col-6>
+      <ion-card (click)="goToProfile()">
+        <ion-row>
+          <ion-icon name="person"></ion-icon>
+        </ion-row>
+        <ion-label>Meu Perfil</ion-label>
+      </ion-card>
+    </ion-col>
+    <ion-col col-6>
+      <ion-card (click)="goToScanner()">
+        <ion-row>
+          <ion-icon name="qr-scanner"></ion-icon>
+        </ion-row>
+        <ion-label>Marcar Presença</ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <ion-card (click)="goToReport()">
+        <ion-row>
+          <ion-icon name="list"></ion-icon>
+        </ion-row>
+        <ion-label>Relatório</ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
