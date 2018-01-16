@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Hygor",
+      "imageUrl": "assets/imgs/avatar/default.png",
+      "username": "hygor",
+      "password": "123456",
+      "ative": true
+    },
+    {
+      "id": "2",
+      "name": "Flavia",
+      "imageUrl": "assets/imgs/avatar/default.png",
+      "username": "flavia",
+      "password": "123456",
+      "ative": true
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "name": "ionic"
+    },
+    {
+      "id": "2",
+      "name": "angular"
+    },
+    {
+      "id": "3",
+      "name": "java"
+    }
+  ],
+  "presence": [
+    {
+      "day": "2017/01/22",
+      "class": "1",
+      "student": "1"
+    }
+  ],
+  "config": [
+    {
+      "use": "1",
+      "notification": false
+    }
+  ]
+}
