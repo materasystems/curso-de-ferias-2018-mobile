@@ -1,7 +1,7 @@
 // Providers
-// import { ToastService } from "../providers/utils/toast.service";
-// import { AlertService } from "../providers/utils/alert.service";
-// import { CameraProvider } from "../providers/utils/camera.service";
+import { ToastService } from "../providers/utils/toast.service";
+import { AlertService } from "../providers/utils/alert.service";
+import { CameraProvider } from "../providers/utils/camera.service";
 // --------------------------------------------------
 // Modules
 import { HomePageModule } from "../pages/home/home.module";
@@ -24,8 +24,8 @@ export const MODULES = [
 ];
 
 export const PROVIDERS = [
-  // AlertService,
-  // ToastService,
-  // CameraProvider,
+  AlertService,
+  ToastService,
+  CameraProvider
   // BarcodeScanner
 ];
