@@ -12,7 +12,7 @@ import { ScannerPageModule } from "../pages/scanner/scanner.module";
 // Native Modules
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
-// import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 // --------------------------------------------------
 export const MODULES = [
   BrowserModule,
@@ -26,6 +26,6 @@ export const MODULES = [
 export const PROVIDERS = [
   AlertService,
   ToastService,
-  CameraProvider
-  // BarcodeScanner
+  CameraProvider,
+  BarcodeScanner
 ];
