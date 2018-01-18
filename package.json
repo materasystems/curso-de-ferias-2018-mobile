@@ -22,6 +22,7 @@
     "@angular/http": "5.0.3",
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/barcode-scanner": "^4.5.2",
     "@ionic-native/camera": "^4.5.2",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/splash-screen": "4.4.0",
@@ -33,6 +34,7 @@
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "json-server": "^0.12.1",
+    "phonegap-plugin-barcodescanner": "^7.0.2",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18"
@@ -44,7 +46,8 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "phonegap-plugin-barcodescanner": {}
     }
   }
 }
