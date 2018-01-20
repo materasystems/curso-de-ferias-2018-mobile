@@ -83,4 +83,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2" />
+    <allow-navigation href="http://192.168.254.12:8100" />
+    <allow-navigation href="http://10.42.0.1:8100" />
 </widget>

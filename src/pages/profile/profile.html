@@ -9,7 +9,7 @@
 <ion-content>
   <ion-list>
     <ion-list-header center>
-      <ion-avatar item-start (click)="updateProfileImage()">
+      <ion-avatar item-start (click)="openGallery()">
         <img [src]="user.imageUrl ? user.imageUrl : placeholderPicture">
       </ion-avatar>
       <p class="username">{{user.name}}</p>
