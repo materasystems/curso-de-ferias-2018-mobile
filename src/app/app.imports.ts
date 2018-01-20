@@ -7,6 +7,7 @@
 import { HomePageModule } from "../pages/home/home.module";
 import { ProfilePageModule } from "../pages/profile/profile.module";
 import { ListPageModule } from "../pages/list/list.module";
+import { LoginPageModule } from './../pages/login/login.module';
 import { ScannerPageModule } from "../pages/scanner/scanner.module";
 // --------------------------------------------------
 // Native Modules
@@ -20,6 +21,7 @@ export const MODULES = [
   HomePageModule,
   ProfilePageModule,
   ListPageModule,
+  LoginPageModule,
   ScannerPageModule
 ];
 
