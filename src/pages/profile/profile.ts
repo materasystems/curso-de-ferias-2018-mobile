@@ -33,7 +33,7 @@ export class ProfilePage {
     public alertService: AlertService,
     public toastCtrl: ToastService,
     public camera: Camera
-  ) {}
+  ) { }
 
   toggleNotifications() {
     if (this.enableNotifications) {
@@ -44,32 +44,32 @@ export class ProfilePage {
   }
 
   updateImage(value) {
-    this.profilePicture = "data:image/jpeg;base64," + value.val();
+    this.profilePicture = "data:image/jpeg;base64," + value;
+
+    this.user.imageUrl = this.profilePicture;
   }
 
-  updateProfileImage() {
-    this.camera
-      .getPicture({
-        quality: 50,
-        allowEdit: true,
-        cameraDirection: this.camera.Direction.FRONT,
-        destinationType: this.camera.DestinationType.DATA_URL
-      })
-      .then(
-        imageData => {
-          this.user.imageUrl = imageData;
-        },
-        err => {
-          this.toastCtrl.create("Error: " + err);
-        }
-      );
+  openGallery(): void {
+    let cameraOptions = {
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      quality: 100,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      encodingType: this.camera.EncodingType.JPEG,
+      correctOrientation: true
+    }
+
+    this.camera.getPicture(cameraOptions)
+      .then(imageData => this.updateImage(imageData),
+      err => this.toastCtrl.create("Error: " + err));
   }
 
   logOut() {
     this.alertService
       .presentAlertWithCallback(
-        "Are you sure?",
-        "This will log you out of this application."
+      "Are you sure?",
+      "This will log you out of this application."
       )
       .then(yes => {
         if (yes) {
