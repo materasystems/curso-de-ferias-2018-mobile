@@ -4,10 +4,10 @@ import { IonicPage } from "ionic-angular";
 
 @IonicPage()
 @Component({
-  selector: "page-list",
-  templateUrl: "list.html"
+  selector: "page-report",
+  templateUrl: "report.html"
 })
-export class ListPage {
+export class ReportPage {
   selectedItem: any;
   icons: string[];
   items: Array<{ title: string; note: string; icon: string }>;
@@ -42,7 +42,7 @@ export class ListPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
+    this.navCtrl.push(ReportPage, {
       item: item
     });
   }

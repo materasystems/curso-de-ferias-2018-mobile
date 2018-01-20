@@ -3,7 +3,7 @@ import { NavController } from "ionic-angular";
 import { IonicPage } from "ionic-angular";
 import { ProfilePage } from "../profile/profile";
 import { ScannerPage } from "../scanner/scanner";
-import { ListPage } from "../list/list";
+import { ReportPage } from "../report/report";
 
 @IonicPage()
 @Component({
@@ -22,6 +22,6 @@ export class HomePage {
   }
 
   goToReport() {
-    this.navCtrl.push(ListPage);
+    this.navCtrl.push(ReportPage);
   }
 }
