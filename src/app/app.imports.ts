@@ -5,6 +5,7 @@ import { CameraProvider } from "../providers/utils/camera.service";
 // --------------------------------------------------
 // Modules
 import { HomePageModule } from "../pages/home/home.module";
+import { PrintPageModule } from './../pages/report/print/print.module';
 import { ProfilePageModule } from "../pages/profile/profile.module";
 import { ReportPageModule } from "../pages/report/report.module";
 import { LoginPageModule } from './../pages/login/login.module';
@@ -19,6 +20,7 @@ export const MODULES = [
   BrowserModule,
   HttpClientModule,
   HomePageModule,
+  PrintPageModule,
   ProfilePageModule,
   ReportPageModule,
   LoginPageModule,
