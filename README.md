@@ -287,12 +287,43 @@ _(Step-02)_
 
   Um exemplo simples de api, é a API pública do [Pokeapi](https://pokeapi.co/), que é uma API pública para consumir dados de pokemons
 
-_(Outros steps)_
+## Links úteis
 
-### Tópicos avançados
-* Como estruturar as pastas da minha aplicação?
-* Boas práticas no uso de [flexbox](https://hygorzorak.github.io/flexbox/)
-* Utilizando recursos nativos do dispositivo - [documentação](https://ionicframework.com/docs/native/)
+### Clients REST
+* Postman - https://www.getpostman.com/
+* Insomnia - https://insomnia.rest/
+
+### CSS
+SASS - https://sass-guidelin.es/pt/
+Grid - http://getskeleton.com/#intro
+Cores - https://coolors.co/
+
+### Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://tableless.com.br/flexbox-organizando-seu-layout/
+Playground - http://the-echoplex.net/flexyboxes/
+
+### ES6
+Geral - https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f
+Conversor ES6 para ES5 - http://es6-features.org/#Constants
+
+### Test 
+Jest - https://facebook.github.io/jest/
+Mocha - https://mochajs.org/
+
+### Angular
+Indice de Components - https://devarchy.com/angular
+Material Components - https://material.angular.io/components/categories
+
+
+### Mobile
+Desenvolvimento nativo com Angular - https://docs.nativescript.org/angular/tutorial/ng-chapter-0
+Padrões - http://www.mobile-patterns.com/
+Lista GitHub de coisas úteis - https://github.com/candelibas/awesome-ionic
+
+### Geral
+Ver aceitação nos browsers - https://caniuse.com/
+Introdução ao GIT - http://rogerdudler.github.io/git-guide/index.pt_BR.html
 
 
 
