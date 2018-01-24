@@ -1,3 +1,23 @@
-<ion-content>
-  <ion-label>Login</ion-label>  
+<ion-content padding class="transparent-header">
+    <ion-header>
+      <ion-navbar>
+      </ion-navbar>
+    </ion-header>
+    <img class="logo" src="assets/imgs/logo.png" />
+    <div padding>
+      <ion-item>
+        <ion-input type="text" placeholder="Username" [(ngModel)]="loginForm.login"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="loginForm.senha"></ion-input>
+      </ion-item>
+      <button ion-button block outline (click)="login()" color="light" class="login-button">Login</button>
+    </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar class="footer">
+    <div (click)="goToSignup()">
+      <span>Don't have an account? <strong>Sign up here</strong>.</span>
+    </div>
+  </ion-toolbar>
+</ion-footer>
