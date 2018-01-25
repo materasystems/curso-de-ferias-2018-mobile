@@ -1,14 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage";
 import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
 import { isUndefined } from "ionic-angular/util/util";
 
 @Injectable()
 export class AuthServiceProvider {
   currentUser: Object;
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, private storage: Storage) {}
 
   public login(credentials) {
     if (credentials.login === null || credentials.senha === null) {
@@ -16,7 +16,6 @@ export class AuthServiceProvider {
     } else {
       return Observable.create(observer => {
         let access: Boolean;
-        console.log(access);
         this.http
           .get(
             `https://curso-ferias.herokuapp.com/usuario?login=${
@@ -27,6 +26,8 @@ export class AuthServiceProvider {
             if (res[0]) {
               this.currentUser = res[0];
               access = true;
+              localStorage.setItem("token", "OK");
+              this.storage.set("currentUser", this.currentUser);
             } else {
               access = false;
             }
@@ -39,11 +40,9 @@ export class AuthServiceProvider {
     }
   }
 
-  public getUserInfo() {
-    return this.currentUser;
-  }
-
   public logout() {
+    localStorage.removeItem("token");
+    this.storage.remove("currentUser");
     return Observable.create(observer => {
       this.currentUser = null;
       observer.next(true);

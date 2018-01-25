@@ -3,6 +3,7 @@ import { ToastService } from "../providers/utils/toast.service";
 import { AlertService } from "../providers/utils/alert.service";
 import { CameraProvider } from "../providers/utils/camera.service";
 import { AuthServiceProvider } from "../providers/auth-service/auth-service";
+import { UserServiceProvider } from "../providers/user-service/user-service";
 // --------------------------------------------------
 
 // Native Providers
@@ -25,6 +26,7 @@ import { ScannerPageModule } from "../pages/scanner/scanner.module";
 // Native Modules
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { IonicStorageModule } from '@ionic/storage';
 // --------------------------------------------------
 
 export const MODULES = [
@@ -37,14 +39,15 @@ export const MODULES = [
   ScannerPageModule
 ];
 
-export const NATIVEMODULES = [BrowserModule, HttpClientModule];
+export const NATIVEMODULES = [BrowserModule, HttpClientModule, IonicStorageModule.forRoot()];
 
 export const PROVIDERS = [
   AlertService,
   ToastService,
   CameraProvider,
   BarcodeScanner,
-  AuthServiceProvider
+  AuthServiceProvider,
+  UserServiceProvider
 ];
 
 export const NATIVEPROVIDERS = [Camera, StatusBar, SplashScreen];

@@ -1,9 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { IonicPage } from "ionic-angular";
-import { ProfilePage } from "../profile/profile";
-import { ScannerPage } from "../scanner/scanner";
-import { ReportPage } from "../report/report";
 
 @IonicPage()
 @Component({
@@ -11,17 +8,20 @@ import { ReportPage } from "../report/report";
   templateUrl: "home.html"
 })
 export class HomePage {
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {
+    const token = localStorage.getItem("token");
+    if (!token) this.navCtrl.setRoot("LoginPage");
+  }
 
   goToProfile() {
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push("ProfilePage");
   }
 
   goToScanner() {
-    this.navCtrl.push(ScannerPage);
+    this.navCtrl.push("ScannerPage");
   }
 
   goToReport() {
-    this.navCtrl.push(ReportPage);
+    this.navCtrl.push("ReportPage");
   }
 }

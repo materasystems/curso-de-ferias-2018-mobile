@@ -4,6 +4,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { LoginPage } from "../pages/login/login";
+import { AuthServiceProvider } from "../providers/auth-service/auth-service";
 
 @Component({
   templateUrl: "app.html"
@@ -18,7 +19,8 @@ export class MyApp {
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public authService: AuthServiceProvider
   ) {
     this.initializeApp();
 
@@ -39,6 +41,7 @@ export class MyApp {
   }
 
   openPage(page) {
+    if (page.component === "LoginPage") this.authService.logout();
     this.nav.setRoot(page.component);
   }
 }

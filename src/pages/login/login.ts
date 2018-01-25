@@ -7,7 +7,6 @@ import {
   IonicPage
 } from "ionic-angular";
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
-import RegisterPage from "../register/register";
 
 @IonicPage()
 @Component({
@@ -23,11 +22,14 @@ export class LoginPage {
     public app: App,
     public nav: NavController,
     private authService: AuthServiceProvider
-  ) {}
+  ) {
+    const token = localStorage.getItem("token");
+    if (token) this.nav.setRoot("HomePage");
+  }
 
   login() {
     const loading = this.loadingCtrl.create({
-      duration: 500
+      duration: 1000
     });
 
     this.authService.login(this.loginForm).subscribe(allowed => {
