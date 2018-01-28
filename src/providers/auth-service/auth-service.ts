@@ -4,6 +4,8 @@ import { Storage } from "@ionic/storage";
 import { Observable } from "rxjs/Observable";
 import { isUndefined } from "ionic-angular/util/util";
 
+import { uri } from "../utils/constants";
+
 @Injectable()
 export class AuthServiceProvider {
   currentUser: Object;
@@ -18,7 +20,7 @@ export class AuthServiceProvider {
         let access: Boolean;
         this.http
           .get(
-            `https://curso-ferias.herokuapp.com/usuario?login=${
+            `${uri}/usuario?login=${
               credentials.login
             }&senha=${credentials.senha}`
           )

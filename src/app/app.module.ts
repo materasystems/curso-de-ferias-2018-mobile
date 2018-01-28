@@ -8,7 +8,7 @@ import {
   NATIVEPROVIDERS
 } from "./app.imports";
 
-// Components
+// Root Component
 import { MyApp } from "./app.component";
 
 @NgModule({
