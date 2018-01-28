@@ -4,6 +4,7 @@ import { Component } from "@angular/core";
 import { Camera } from "@ionic-native/camera";
 import { Storage } from "@ionic/storage";
 import { IonicPage } from "ionic-angular";
+import { NavController } from "ionic-angular";
 
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
@@ -36,13 +37,14 @@ export class ProfilePage implements OnInit {
     public alertService: AlertService,
     public authService: AuthServiceProvider,
     public userService: UserServiceProvider,
-    private storage: Storage,
     public toastCtrl: ToastService,
-    public camera: Camera
+    private navCtrl: NavController,
+    private storage: Storage,
+    private camera: Camera
   ) {}
 
   ngOnInit() {
-    this.storage.get("currentUser").then(res => {
+    this.userService.getUserData().then(res => {
       this.responseUser = res;
       this.user.id = this.responseUser.id;
       this.user.name = this.responseUser.nome;
@@ -97,7 +99,9 @@ export class ProfilePage implements OnInit {
       )
       .then(yes => {
         if (yes) {
+          this.authService.logout();
           this.toastCtrl.create("Logged out of the application");
+          this.navCtrl.setRoot("LoginPage");
         }
       });
   }

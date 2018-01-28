@@ -1,18 +1,20 @@
+// Core do Angular
 import { Component, ViewChild } from "@angular/core";
+// Native providers
 import { Nav, Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
-
-import { LoginPage } from "../pages/login/login";
+// Providers
 import { AuthServiceProvider } from "../providers/auth-service/auth-service";
 
 @Component({
   templateUrl: "app.html"
 })
 export class MyApp {
+  // Utilizado para informar que a página vai ter filhos, ou seja, páginas que irão nascer dela
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = LoginPage;
+  // Armazena a página Login Page em uma variável para especificar qual é a página de entrada do usuário no app
+  rootPage: any = "LoginPage";
 
   pages: Array<{ title: string; component: any }>;
 
