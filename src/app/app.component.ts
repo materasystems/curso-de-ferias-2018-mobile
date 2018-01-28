@@ -29,6 +29,7 @@ export class MyApp {
       { title: "Report", component: "ReportPage" },
       { title: "Profile", component: "ProfilePage" },
       { title: "Scaner", component: "ScannerPage" },
+      { title: "Add", component: "AddUserPage" },
       { title: "Sair", component: "LoginPage" }
     ];
   }

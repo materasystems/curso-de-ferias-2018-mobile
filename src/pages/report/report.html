@@ -1,15 +1,10 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Report</ion-title>
-  </ion-navbar>
+  <comp-header title="Report"></comp-header>
 </ion-header>
 
 <ion-content>
   <ion-list *ngFor="let item of items">
-    <ion-card >
+    <ion-card>
       <ion-card-header (click)="toggleAccordion(item)">
         <ion-item>
           <ion-icon [name]="item.logo" item-start></ion-icon>

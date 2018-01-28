@@ -14,12 +14,12 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 // --------------------------------------------------
 
 // Modules
+import { AddUserPageModule } from './../pages/add-user/add-user.module';
 import { HomePageModule } from "../pages/home/home.module";
 import { PrintPageModule } from "./../pages/report/print/print.module";
 import { ProfilePageModule } from "../pages/profile/profile.module";
 import { ReportPageModule } from "../pages/report/report.module";
 import { LoginPageModule } from "./../pages/login/login.module";
-import { RegisterPageModule } from "./../pages/register/register.module";
 import { ScannerPageModule } from "../pages/scanner/scanner.module";
 // --------------------------------------------------
 
@@ -30,12 +30,12 @@ import { IonicStorageModule } from '@ionic/storage';
 // --------------------------------------------------
 
 export const MODULES = [
+  AddUserPageModule,
   HomePageModule,
   PrintPageModule,
   ProfilePageModule,
   ReportPageModule,
   LoginPageModule,
-  RegisterPageModule,
   ScannerPageModule
 ];
 

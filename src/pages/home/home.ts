@@ -24,4 +24,8 @@ export class HomePage {
   goToReport() {
     this.navCtrl.push("ReportPage");
   }
+
+  goToAddUser() {
+    this.navCtrl.push("AddUserPage");
+  }
 }
