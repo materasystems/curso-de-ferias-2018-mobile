@@ -1,27 +1,27 @@
 <ion-header>
-  <comp-header title="Add"></comp-header>
+  <comp-header title="Edit"></comp-header>
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="addUserForm">
+  <form [formGroup]="editUserForm">
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text" formControlName="name"></ion-input>
+      <ion-input type="text" formControlName="nome" value={{user.nome}}></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>CPF</ion-label>
-      <ion-input type="number" formControlName="cpf"></ion-input>
+      <ion-input type="number" formControlName="cpf" value={{user.cpf}}></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Telefone</ion-label>
-      <ion-input type="tel" formControlName="phone"></ion-input>
+      <ion-input type="tel" formControlName="phone" value={{user.phone}}></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>E-mail</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-input type="email" formControlName="email" value={{user.email}}></ion-input>
     </ion-item>
   </form>
 

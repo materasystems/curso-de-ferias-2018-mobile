@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
     this.navCtrl.push("ReportPage");
   }
 
-  goToAddUser() {
-    this.navCtrl.push("AddUserPage");
+  goToEditUser() {
+    this.navCtrl.push("EditUserPage");
   }
 }

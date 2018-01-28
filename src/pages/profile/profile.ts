@@ -1,3 +1,4 @@
+import { EditUserPage } from './../edit-user/edit-user';
 import { ToastService } from "../../providers/utils/toast.service";
 import { AlertService } from "../../providers/utils/alert.service";
 import { Component } from "@angular/core";
@@ -31,7 +32,7 @@ export class ProfilePage implements OnInit {
   paymentMethods = ["Paypal", "Credit Card"];
   currencies = ["USD", "BRL", "EUR"];
 
-  user = { id: "", name: "", imageUrl: "" };
+  user = { id: "", name: "", imageUrl: "", cpf: "", phone: "", email: "" };
 
   constructor(
     public alertService: AlertService,
@@ -49,6 +50,9 @@ export class ProfilePage implements OnInit {
       this.user.id = this.responseUser.id;
       this.user.name = this.responseUser.nome;
       this.user.imageUrl = this.responseUser.urlFoto;
+      this.user.cpf = this.responseUser.cpf;
+      this.user.phone = this.responseUser.phone;
+      this.user.email = this.responseUser.email;
     });
   }
 
@@ -89,6 +93,10 @@ export class ProfilePage implements OnInit {
         imageData => this.updateImage(imageData),
         err => this.toastCtrl.create("Error: " + err)
       );
+  }
+  
+  editUser() {
+    this.navCtrl.push(EditUserPage)
   }
 
   logOut() {

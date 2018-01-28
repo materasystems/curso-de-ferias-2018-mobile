@@ -12,9 +12,33 @@
       <p>Student</p>
     </ion-list-header>
   </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Dados</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name='ios-paper' item-start></ion-icon>
+      <ion-label>CPF: {{user.cpf}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='mail' item-start></ion-icon>
+      <ion-label>E-mail: {{user.email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='phone-portrait' item-start></ion-icon>
+      <ion-label>Telefone: {{user.phone}}</ion-label>
+    </ion-item>
+    <div padding-top text-right>
+      <button ion-button (click)="editUser()">
+        <ion-label>Editar</ion-label>
+      </button>
+    </div>
+  </ion-list>
+
   <ion-list no-border>
     <ion-list-header>
-      General
+      <ion-label>General</ion-label>
     </ion-list-header>
     <ion-item>
       <ion-icon name='settings' item-start></ion-icon>

@@ -16,7 +16,7 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 // --------------------------------------------------
 
 // Modules
-import { AddUserPageModule } from './../pages/add-user/add-user.module';
+import { EditUserPageModule } from './../pages/edit-user/edit-user.module';
 import { HomePageModule } from "../pages/home/home.module";
 import { PrintPageModule } from "./../pages/report/print/print.module";
 import { ProfilePageModule } from "../pages/profile/profile.module";
@@ -32,7 +32,7 @@ import { IonicStorageModule } from "@ionic/storage";
 // --------------------------------------------------
 
 export const MODULES = [
-  AddUserPageModule,
+  EditUserPageModule,
   HomePageModule,
   PrintPageModule,
   ProfilePageModule,
