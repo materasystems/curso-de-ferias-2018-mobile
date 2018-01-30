@@ -39,43 +39,43 @@ export class ReportPage implements OnInit {
     this.userService.getUserData().then(res => {
       const user: any = res;
 
-      this.reportService
-        .getData(user.id, "1")
-        .subscribe(res => (this.angular = res));
-      this.reportService
-        .getData(user.id, "2")
-        .subscribe(res => (this.ionic = res));
-      this.reportService
-        .getData(user.id, "3")
-        .subscribe(res => (this.rest = res));
-
+      // Pega presenças do Angular
+      this.reportService.getData(user.id, "1").subscribe(res => {
+        this.angular = res;
+        // Pega presenças do Ionic
+        this.reportService.getData(user.id, "2").subscribe(res => {
+          this.ionic = res;
+          // Pega presenças do Rest
+          this.reportService.getData(user.id, "3").subscribe(res => {
+            this.rest = res;
+            // Com todos os dados salvos em variáveis, criar o array de objetos
+            this.items.push(
+              {
+                title: "Angular",
+                details: `Total de presenças: ${this.angular.length}`,
+                logo: "logo-angular",
+                icon: "ios-add-circle-outline",
+                showDetails: false
+              },
+              {
+                title: "Ionic",
+                details: `Total de presenças: ${this.ionic.length}`,
+                logo: "ionic",
+                icon: "ios-add-circle-outline",
+                showDetails: false
+              },
+              {
+                title: "Java",
+                details: `Total de presenças: ${this.rest.length}`,
+                logo: "ios-cafe",
+                icon: "ios-add-circle-outline",
+                showDetails: false
+              }
+            );
+          });
+        });
+      });
       this.selectedItem = this.navParams.get("item");
-
-      setTimeout(() => {
-        this.items.push(
-          {
-            title: "Angular",
-            details: `Total de presenças: ${this.angular.length}`,
-            logo: "logo-angular",
-            icon: "ios-add-circle-outline",
-            showDetails: false
-          },
-          {
-            title: "Ionic",
-            details: `Total de presenças: ${this.ionic.length}`,
-            logo: "ionic",
-            icon: "ios-add-circle-outline",
-            showDetails: false
-          },
-          {
-            title: "Java",
-            details: `Total de presenças: ${this.rest.length}`,
-            logo: "ios-cafe",
-            icon: "ios-add-circle-outline",
-            showDetails: false
-          }
-        );
-      }, 1000);
     });
   }
 
