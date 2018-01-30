@@ -29,7 +29,7 @@ export class LoginPage {
 
   login() {
     const loading = this.loadingCtrl.create({
-      duration: 1000
+      duration: 4000
     });
 
     this.authService.login(this.loginForm).subscribe(allowed => {
@@ -40,6 +40,7 @@ export class LoginPage {
           buttons: ["OK"]
         });
         alert.present();
+        loading.dismiss();
         this.nav.setRoot("HomePage");
       } else {
         const alert = this.alertCtrl.create({
@@ -48,6 +49,7 @@ export class LoginPage {
           buttons: ["OK"]
         });
         alert.present();
+        loading.dismiss();
       }
     });
     loading.present();
