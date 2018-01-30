@@ -21,14 +21,14 @@ export class HomePage implements OnInit {
   }
 
   goToProfile() {
-    this.navCtrl.push("ProfilePage");
+    this.navCtrl.setRoot("ProfilePage");
   }
 
   goToScanner() {
-    this.navCtrl.push("ScannerPage");
+    this.navCtrl.setRoot("ScannerPage");
   }
 
   goToReport() {
-    this.navCtrl.push("ReportPage");
+    this.navCtrl.setRoot("ReportPage");
   }
 }

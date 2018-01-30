@@ -10,28 +10,35 @@
 <ion-content>
   <ion-row>
     <ion-col col-12>
+      <div class="main-title">
+        <span class="main-title-second-color">Acesso </span>Rápido
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="card-list">
+    <div>
       <ion-card (click)="goToProfile()">
         <ion-row>
           <ion-icon name="person"></ion-icon>
-          <ion-label>Perfil</ion-label>
+          <h5>Perfil</h5>
         </ion-row>
       </ion-card>
-    </ion-col>
-    <ion-col col-12>
+    </div>
+    <div>
       <ion-card (click)="goToScanner()">
         <ion-row>
           <ion-icon name="qr-scanner"></ion-icon>
-          <ion-label>Marcar Presença</ion-label>
+          <h5>Presença</h5>
         </ion-row>
       </ion-card>
-    </ion-col>
-    <ion-col col-12>
+    </div>
+    <div>
       <ion-card (click)="goToReport()">
         <ion-row>
           <ion-icon name="list"></ion-icon>
-          <ion-label>Relatório</ion-label>
+          <h5>Relatório</h5>
         </ion-row>
       </ion-card>
-    </ion-col>
+    </div>
   </ion-row>
 </ion-content>

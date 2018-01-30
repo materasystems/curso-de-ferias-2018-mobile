@@ -1,16 +1,51 @@
-// http://ionicframework.com/docs/theming/
+.bar-button-default,
+.bar-button-clear-default {
+  color: #f1f1f1 !important;
+}
+
+.toolbar-title {
+  color: #f1f1f1 !important;
+}
+
+.toolbar-background {
+  background: transparent;
+  border: none;
+}
+
+ion-header {
+  height: 70px;
+  background: #342580 !important;
+  color: #ffffff !important;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  border-bottom: 1px solid #0e0151;
+  .icon {
+    margin: 10px auto;
+    width: 100%;
+    font-size: 1.8em;
+  }
+}
+
+.ios ion-nav > .ion-page > .toolbar.statusbar-padding:first-child,
+.ios ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
+.ios ion-tab > .ion-page > .toolbar.statusbar-padding:first-child,
+.ios ion-tab > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
+.ios
+  ion-tabs
+  > .ion-page.tab-subpage
+  > ion-header
+  > .toolbar.statusbar-padding:first-child,
+.ios ion-menu > .menu-inner > .toolbar.statusbar-padding:first-child,
+.ios
+  ion-menu
+  > .menu-inner
+  > ion-header
+  > .toolbar.statusbar-padding:first-child {
+  min-height: 70px !important;
+  padding-top: 4px !important;
+}
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
