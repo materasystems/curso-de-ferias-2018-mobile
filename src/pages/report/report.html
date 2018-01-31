@@ -17,7 +17,8 @@
           <ion-icon [name]="item.icon" item-end></ion-icon>
         </ion-item>
       </ion-card-header>
-      <ion-card-content *ngIf="item.showDetails" [innerHTML]="item.details">
+      <ion-card-content *ngIf="item.showDetails">
+        {{item.details}}
       </ion-card-content>
     </ion-card>
   </ion-list>

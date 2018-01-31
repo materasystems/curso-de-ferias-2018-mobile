@@ -13,9 +13,6 @@ import { UserServiceProvider } from "../../providers/user-service/user-service";
   templateUrl: "report.html"
 })
 export class ReportPage implements OnInit {
-  selectedItem: any;
-  report: any;
-  icons: string[];
   items: Array<{
     title: string;
     details: string;
@@ -75,7 +72,6 @@ export class ReportPage implements OnInit {
           });
         });
       });
-      this.selectedItem = this.navParams.get("item");
     });
   }
 
