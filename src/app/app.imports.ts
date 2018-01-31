@@ -6,6 +6,7 @@ import { AuthServiceProvider } from "../providers/auth-service/auth-service";
 import { UserServiceProvider } from "../providers/user-service/user-service";
 import { ReportServiceProvider } from "../providers/report-service/report-service";
 import { ScannerServiceProvider } from "../providers/scanner-service/scanner-service";
+import { TokenStorage } from "../providers/auth-service/token-storage-service";
 // --------------------------------------------------
 
 // Native Providers
@@ -16,7 +17,7 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 // --------------------------------------------------
 
 // Modules
-import { HttpModule } from '@angular/http';
+import { HttpModule } from "@angular/http";
 import { HomePageModule } from "../pages/home/home.module";
 import { PrintPageModule } from "./../pages/report/print/print.module";
 import { ProfilePageModule } from "../pages/profile/profile.module";
@@ -52,6 +53,7 @@ export const NATIVEMODULES = [
 export const PROVIDERS = [
   AlertService,
   ToastService,
+  TokenStorage,
   CameraProvider,
   BarcodeScanner,
   AuthServiceProvider,
