@@ -16,6 +16,7 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 // --------------------------------------------------
 
 // Modules
+import { HttpModule } from '@angular/http';
 import { HomePageModule } from "../pages/home/home.module";
 import { PrintPageModule } from "./../pages/report/print/print.module";
 import { ProfilePageModule } from "../pages/profile/profile.module";
@@ -42,6 +43,7 @@ export const MODULES = [
 ];
 
 export const NATIVEMODULES = [
+  HttpModule,
   BrowserModule,
   HttpClientModule,
   IonicStorageModule.forRoot()

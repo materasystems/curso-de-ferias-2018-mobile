@@ -38,13 +38,13 @@ export class ReportPage implements OnInit {
 
       // Pega presenças do Angular
       this.reportService.getData(user.id, "1").subscribe(res => {
-        this.angular = res;
+        this.angular = res.json();
         // Pega presenças do Ionic
         this.reportService.getData(user.id, "2").subscribe(res => {
-          this.ionic = res;
+          this.ionic = res.json();
           // Pega presenças do Rest
           this.reportService.getData(user.id, "3").subscribe(res => {
-            this.rest = res;
+            this.rest = res.json();
             // Com todos os dados salvos em variáveis, criar o array de objetos
             this.items.push(
               {
