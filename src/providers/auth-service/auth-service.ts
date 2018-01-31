@@ -1,54 +1,83 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Storage } from "@ionic/storage";
 import { Observable } from "rxjs/Observable";
-import { isUndefined } from "ionic-angular/util/util";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpParams
+} from "@angular/common/http";
+import { AuthService } from "ngx-auth";
+
+import { TokenStorage } from "./token-storage-service";
 
 import { uri } from "../utils/constants";
 
+interface AccessData {
+  accessToken: string;
+  refreshToken: string;
+}
+
 @Injectable()
-export class AuthServiceProvider {
+export class AuthServiceProvider implements AuthService {
   currentUser: Object;
 
-  constructor(public http: HttpClient, private storage: Storage) {}
+  constructor(public http: HttpClient, private tokenStorage: TokenStorage) {}
 
-  public login(credentials) {
-    if (credentials.login === null || credentials.senha === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      return Observable.create(observer => {
-        let access: Boolean;
-        this.http
-          .get(
-            `${uri}/usuario?login=${
-              credentials.login
-            }&senha=${credentials.senha}`
-          )
-          .subscribe(res => {
-            if (res[0]) {
-              this.currentUser = res[0];
-              access = true;
-              localStorage.setItem("token", "OK");
-              this.storage.set("currentUser", this.currentUser);
-            } else {
-              access = false;
-            }
-            if (!isUndefined(access)) {
-              observer.next(access);
-              observer.complete();
-            }
-          });
-      });
-    }
+  public isAuthorized(): Observable<boolean> {
+    return this.tokenStorage.getAccessToken().map(token => !!token);
   }
 
-  public logout() {
-    localStorage.removeItem("token");
-    this.storage.remove("currentUser");
-    return Observable.create(observer => {
-      this.currentUser = null;
-      observer.next(true);
-      observer.complete();
-    });
+  public getAccessToken(): Observable<string> {
+    return this.tokenStorage.getAccessToken();
+  }
+
+  public refreshToken(): Observable<AccessData> {
+    return this.tokenStorage
+      .getRefreshToken()
+      .switchMap((refreshToken: string) => {
+        return this.http.post(`${uri}/refresh`, {
+          refreshToken
+        });
+      })
+      .do(this.saveAccessData.bind(this))
+      .catch(err => {
+        this.logout();
+
+        return Observable.throw(err);
+      });
+  }
+
+  public refreshShouldHappen(response: HttpErrorResponse): boolean {
+    return response.status === 401;
+  }
+
+  public verifyTokenRequest(url: string): boolean {
+    return url.endsWith("/refresh");
+  }
+
+  public login(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic bW9iaWxlOmFsdW5vcw=="
+      })
+    };
+    const params = new HttpParams()
+      .set("username", "usuario")
+      .append("password", "password")
+      .append("grant_type", "password");
+
+    return this.http
+      .post(`${uri}/oauth/token`, params.toString(), httpOptions)
+      .do((tokens: AccessData) => this.saveAccessData(tokens));
+  }
+
+  private saveAccessData({ accessToken, refreshToken }: AccessData) {
+    this.tokenStorage.setAccessToken(accessToken).setRefreshToken(refreshToken);
+  }
+
+  public logout(): void {
+    this.tokenStorage.clear();
+    location.reload(true);
   }
 }
