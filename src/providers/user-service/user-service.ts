@@ -1,22 +1,33 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
+import { AuthServiceProvider } from "../auth-service/auth-service";
+
+import { uri } from "../utils/constants";
 
 @Injectable()
 export class UserServiceProvider {
-  currentUser: Object;
+  private accessToken: string;
+  public currentUser: Object;
 
-  constructor(public http: HttpClient, private storage: Storage) {}
+  constructor(
+    public http: HttpClient,
+    private storage: Storage,
+    public authService: AuthServiceProvider
+  ) {
+    this.accessToken = this.authService.getAccessToken();
+  }
 
   changePicture(id, img) {
-    let uri = `https://curso-ferias.herokuapp.com/usuario/${id}`;
+    // forma de construir o header em um único arquivo
+    const httpOptions = this.authService.getHeader();
     let body = {
       urlFoto: img
     };
-    this.http.patch(uri, body);
+    this.http.patch(`${uri}/usuario/${id}`, body, httpOptions);
   }
 
   getUserData() {
-    return this.storage.get("currentUser")
+    return this.storage.get("currentUser");
   }
 }

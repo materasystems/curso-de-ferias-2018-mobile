@@ -21,6 +21,17 @@ export class AuthServiceProvider {
     return `Bearer ${this.tokenStorage.getAccessToken()}`;
   }
 
+  public getHeader() {
+    const token = this.getAccessToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: token
+      })
+    };
+    return httpOptions;
+  }
+
   public buildToken(credentials) {
     // regra de criação
     const token = btoa(`${credentials.login}:${credentials.senha}`);
@@ -45,7 +56,7 @@ export class AuthServiceProvider {
     return this.http.post(`${uri}/oauth/token`, params.toString(), httpOptions);
   }
 
-  saveAccessData({ access_token }) {
+  public saveAccessData({ access_token }) {
     this.tokenStorage.setAccessToken(access_token);
   }
 

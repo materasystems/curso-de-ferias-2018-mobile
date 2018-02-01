@@ -33,6 +33,7 @@ export class LoginPage {
     });
 
     this.authService.login(this.loginForm).subscribe(res => {
+      console.log(res)
       if (res) {
         this.authService.saveAccessData(res);
         const alert = this.alertCtrl.create({

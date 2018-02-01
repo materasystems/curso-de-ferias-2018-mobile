@@ -1,9 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import uuid from "uuid";
+import { AuthServiceProvider } from "../auth-service/auth-service";
 
 import { uri } from "../utils/constants";
-import { AuthServiceProvider } from "../auth-service/auth-service";
 
 @Injectable()
 export class ScannerServiceProvider {
@@ -17,12 +16,18 @@ export class ScannerServiceProvider {
   }
 
   postData(id, disciplina) {
-    const body = {
-      id: uuid.v4(),
-      dia: new Date(),
-      disciplina: disciplina,
-      usuario: id
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: this.accessToken
+      })
     };
-    return this.http.post(`${uri}/presenca`, body);
+
+    const body = {
+      data: new Date(),
+      disciplina: disciplina,
+      aluno: id
+    };
+    return this.http.put(`${uri}/frequencia/${disciplina}/${id}`, body, httpOptions);
   }
 }

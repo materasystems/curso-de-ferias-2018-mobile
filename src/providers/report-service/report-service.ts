@@ -1,16 +1,31 @@
 import { Injectable } from "@angular/core";
-import { Http, Headers, RequestOptions, Response } from "@angular/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { AuthServiceProvider } from "../auth-service/auth-service";
 
 import { uri } from "../utils/constants";
 
 @Injectable()
 export class ReportServiceProvider {
-  constructor(public http: Http) {}
+  private accessToken: string;
+
+  constructor(
+    public http: HttpClient,
+    public authService: AuthServiceProvider
+  ) {
+    // armazena o token em uma variável
+    this.accessToken = this.authService.getAccessToken();
+  }
 
   getData(id, disciplina) {
-    let headers = new Headers({"Content-Type": "application/x-www-form-urlencoded"});
-    let options = new RequestOptions({ headers: headers });
-    return this.http
-    .get(`${uri}/presenca?usuario=${id}&disciplina=${disciplina}`, options)}
-    // .get(`${uri}/api/v1/relatorio/${disciplina}/${id}`, options)}
+    // constrói o header
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: this.accessToken
+      })
+    };
+    // OU
+    // const httpOptions = this.authService.getHeader()
+    return this.http.get(`${uri}/relatorio/${disciplina}/${id}`, httpOptions);
+  }
 }
