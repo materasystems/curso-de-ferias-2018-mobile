@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthServiceProvider } from "../auth-service/auth-service";
 
@@ -16,13 +16,7 @@ export class ScannerServiceProvider {
   }
 
   postData(id, disciplina) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: this.accessToken
-      })
-    };
-
+    const httpOptions = this.authService.getHeader();
     const body = {
       data: new Date(),
       disciplina: disciplina,
