@@ -1,65 +1,40 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-  HttpParams
-} from "@angular/common/http";
-import { AuthService } from "ngx-auth";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 
 import { TokenStorage } from "./token-storage-service";
 
 import { uri } from "../utils/constants";
 
-interface AccessData {
-  accessToken: string;
-  refreshToken: string;
-}
-
 @Injectable()
-export class AuthServiceProvider implements AuthService {
+export class AuthServiceProvider {
   currentUser: Object;
 
   constructor(public http: HttpClient, private tokenStorage: TokenStorage) {}
 
-  public isAuthorized(): Observable<boolean> {
-    return this.tokenStorage.getAccessToken().map(token => !!token);
+  public isAuthorized() {
+    const token = this.tokenStorage.getAccessToken();
+    return token ? true : false;
   }
 
-  public getAccessToken(): Observable<string> {
-    return this.tokenStorage.getAccessToken();
+  public getAccessToken() {
+    return `Bearer ${this.tokenStorage.getAccessToken()}`;
   }
 
-  public refreshToken(): Observable<AccessData> {
-    return this.tokenStorage
-      .getRefreshToken()
-      .switchMap((refreshToken: string) => {
-        return this.http.post(`${uri}/refresh`, {
-          refreshToken
-        });
-      })
-      .do(this.saveAccessData.bind(this))
-      .catch(err => {
-        this.logout();
-
-        return Observable.throw(err);
-      });
+  public buildToken(credentials) {
+    // regra de criação
+    const token = btoa(`${credentials.login}:${credentials.senha}`);
+    return token;
+    // return "bW9iaWxlOmFsdW5vcw==";
   }
 
-  public refreshShouldHappen(response: HttpErrorResponse): boolean {
-    return response.status === 401;
-  }
+  public login(credentials): Observable<any> {
+    const user = this.buildToken(credentials);
 
-  public verifyTokenRequest(url: string): boolean {
-    return url.endsWith("/refresh");
-  }
-
-  public login(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Basic bW9iaWxlOmFsdW5vcw=="
+        Authorization: `Basic ${user}`
       })
     };
     const params = new HttpParams()
@@ -67,13 +42,11 @@ export class AuthServiceProvider implements AuthService {
       .append("password", "password")
       .append("grant_type", "password");
 
-    return this.http
-      .post(`${uri}/oauth/token`, params.toString(), httpOptions)
-      .do((tokens: AccessData) => this.saveAccessData(tokens));
+    return this.http.post(`${uri}/oauth/token`, params.toString(), httpOptions);
   }
 
-  private saveAccessData({ accessToken, refreshToken }: AccessData) {
-    this.tokenStorage.setAccessToken(accessToken).setRefreshToken(refreshToken);
+  saveAccessData({ access_token }) {
+    this.tokenStorage.setAccessToken(access_token);
   }
 
   public logout(): void {
