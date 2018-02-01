@@ -28,6 +28,8 @@ export class UserServiceProvider {
   }
 
   getUserData() {
+    // "uuid": "3480ed0e-2c8d-4a69-a8ed-7a2f136c4c20",
+    // "urlPhoto": "http://bucket/usuario/1/perfil.png"
     return this.storage.get("currentUser");
   }
 }
