@@ -3,10 +3,18 @@ import { Injectable } from "@angular/core";
 import uuid from "uuid";
 
 import { uri } from "../utils/constants";
+import { AuthServiceProvider } from "../auth-service/auth-service";
 
 @Injectable()
 export class ScannerServiceProvider {
-  constructor(public http: HttpClient) {}
+  private accessToken: string;
+
+  constructor(
+    public http: HttpClient,
+    public authService: AuthServiceProvider
+  ) {
+    this.accessToken = this.authService.getAccessToken();
+  }
 
   postData(id, disciplina) {
     const body = {

@@ -7,28 +7,30 @@ import { NavController } from "ionic-angular";
 // Ciclo de vida do Angular para poder realizar alguma coisa no momento em que a página é carregada
 import { OnInit } from "@angular/core";
 
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+
 @IonicPage()
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage implements OnInit {
-  constructor(public navCtrl: NavController) {}
+  constructor(public nav: NavController, private authService: AuthServiceProvider) {}
 
   ngOnInit() {
-    const token = localStorage.getItem("token");
-    if (!token) this.navCtrl.setRoot("LoginPage");
+    const isAuthorized = this.authService.isAuthorized();
+    if (!isAuthorized) this.nav.setRoot("LoginPage");
   }
 
   goToProfile() {
-    this.navCtrl.setRoot("ProfilePage");
+    this.nav.setRoot("ProfilePage");
   }
 
   goToScanner() {
-    this.navCtrl.setRoot("ScannerPage");
+    this.nav.setRoot("ScannerPage");
   }
 
   goToReport() {
-    this.navCtrl.setRoot("ReportPage");
+    this.nav.setRoot("ReportPage");
   }
 }

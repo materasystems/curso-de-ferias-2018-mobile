@@ -23,8 +23,8 @@ export class LoginPage {
     public nav: NavController,
     private authService: AuthServiceProvider
   ) {
-    const token = localStorage.getItem("token");
-    if (token) this.nav.setRoot("HomePage");
+    const isAuthorized = this.authService.isAuthorized();
+    if (isAuthorized) this.nav.setRoot("HomePage");
   }
 
   login() {
@@ -32,8 +32,9 @@ export class LoginPage {
       duration: 4000
     });
 
-    this.authService.login(this.loginForm).subscribe(allowed => {
-      if (allowed) {
+    this.authService.login(this.loginForm).subscribe(res => {
+      if (res) {
+        this.authService.saveAccessData(res);
         const alert = this.alertCtrl.create({
           title: "Logged in!",
           subTitle: "Thanks for logging in.",
