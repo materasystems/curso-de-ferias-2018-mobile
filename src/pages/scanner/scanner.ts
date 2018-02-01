@@ -48,8 +48,11 @@ export class ScannerPage implements OnInit {
       .scan(options)
       .then(data => {
         this.barcodeData = data;
+        let leitura = atob(this.barcodeData);
+        let objeto = JSON.parse(leitura);
+        
         const id = this.currentUser.id;
-        const disciplina = this.barcodeData.id;
+        const disciplina = objeto.id;
         this.scannerService.postData(id, disciplina).subscribe(res => {
           console.log(res);
           const alert = this.alertCtrl.create({
