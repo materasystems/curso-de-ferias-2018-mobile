@@ -7,6 +7,7 @@ import {
   IonicPage
 } from "ionic-angular";
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { UserServiceProvider } from "../../providers/user-service/user-service";
 
 @IonicPage()
 @Component({
@@ -17,10 +18,11 @@ export class LoginPage {
   public loginForm = { login: "", senha: "" };
 
   constructor(
-    public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,
     public app: App,
     public nav: NavController,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
+    private userService: UserServiceProvider,
     private authService: AuthServiceProvider
   ) {
     const isAuthorized = this.authService.isAuthorized();
@@ -33,9 +35,10 @@ export class LoginPage {
     });
 
     this.authService.login(this.loginForm).subscribe(res => {
-      console.log(res)
+      console.log("token", res);
       if (res) {
         this.authService.saveAccessData(res);
+        this.userService.storeUserData();
         const alert = this.alertCtrl.create({
           title: "Logged in!",
           subTitle: "Thanks for logging in.",

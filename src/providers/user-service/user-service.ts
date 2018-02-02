@@ -19,17 +19,22 @@ export class UserServiceProvider {
   }
 
   changePicture(id, img) {
-    // forma de construir o header em um único arquivo
     const httpOptions = this.authService.getHeader();
     let body = {
       urlFoto: img
     };
-    this.http.patch(`${uri}/usuario/${id}`, body, httpOptions);
+    return this.http.patch(`${uri}/usuarios/${id}`, body, httpOptions);
+  }
+
+  storeUserData() {
+    const httpOptions = this.authService.getHeader();
+    this.http.get(`${uri}/api/v1/usuarios/me`, httpOptions).subscribe(res => {
+      this.storage.set("currentUser", res);
+      console.log(res);
+    });
   }
 
   getUserData() {
-    // "uuid": "3480ed0e-2c8d-4a69-a8ed-7a2f136c4c20",
-    // "urlPhoto": "http://bucket/usuario/1/perfil.png"
-    return this.storage.get("currentUser");
+    return this.storage.get("currentUser").then(res => res);
   }
 }

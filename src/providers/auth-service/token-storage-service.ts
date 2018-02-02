@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage";
 
 @Injectable()
 export class TokenStorage {
+  constructor(private storage: Storage) {}
 
   public getAccessToken() {
     return localStorage.getItem("accessToken");
@@ -14,6 +16,6 @@ export class TokenStorage {
 
   public clear() {
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    this.storage.remove("currentUser");
   }
 }

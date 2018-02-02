@@ -13,16 +13,8 @@ import { UserServiceProvider } from "../../providers/user-service/user-service";
   templateUrl: "report.html"
 })
 export class ReportPage implements OnInit {
-  items: Array<{
-    title: string;
-    details: string;
-    logo: string;
-    icon: string;
-    showDetails: boolean;
-  }>;
-  angular: any;
-  ionic: any;
-  rest: any;
+  items: any;
+  courses: any;
 
   constructor(
     public navCtrl: NavController,
@@ -35,41 +27,26 @@ export class ReportPage implements OnInit {
     this.items = [];
     this.userService.getUserData().then(res => {
       const user: any = res;
+      console.log("user", user);
 
-      // Pega presenças do Angular
-      this.reportService.getData(user.id, "1").subscribe(res => {
-        this.angular = res.json();
-        // Pega presenças do Ionic
-        this.reportService.getData(user.id, "2").subscribe(res => {
-          this.ionic = res.json();
-          // Pega presenças do Rest
-          this.reportService.getData(user.id, "3").subscribe(res => {
-            this.rest = res.json();
-            // Com todos os dados salvos em variáveis, criar o array de objetos
-            this.items.push(
-              {
-                title: "Angular",
-                details: `Total de presenças: ${this.angular.length}`,
-                logo: "logo-angular",
-                icon: "ios-add-circle-outline",
-                showDetails: false
-              },
-              {
-                title: "Ionic",
-                details: `Total de presenças: ${this.ionic.length}`,
-                logo: "ionic",
-                icon: "ios-add-circle-outline",
-                showDetails: false
-              },
-              {
-                title: "Java",
-                details: `Total de presenças: ${this.rest.length}`,
-                logo: "ios-cafe",
-                icon: "ios-add-circle-outline",
-                showDetails: false
-              }
-            );
+      this.reportService.getClasses().subscribe(res => {
+        this.courses = res;
+        this.courses.map(el => {
+          this.items.push({
+            logo:
+              el.descricao === "Ionic"
+                ? "ionic"
+                : el.descricao === "Angular" ? "logo-angular" : "ios-cafe",
+            title: el.descricao,
+            details: `Segmento: ${el.segmento}`,
+            dataInicio: el.dataInicio,
+            dataTermino: el.dataTermino,
+            icon: "ios-add-circle-outline",
+            showDetails: false
           });
+          // this.reportService
+          //   .getData(el.id, user.id)
+          //   .subscribe(res => console.log(`${el.descricao}`, res));
         });
       });
     });

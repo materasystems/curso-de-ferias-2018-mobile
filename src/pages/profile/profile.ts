@@ -1,14 +1,13 @@
+import { IonicPage } from "ionic-angular";
+import { Component } from "@angular/core";
+import { OnInit } from "@angular/core";
+import { NavController } from "ionic-angular";
+import { Camera } from "@ionic-native/camera";
+
 import { ToastService } from "../../providers/utils/toast.service";
 import { AlertService } from "../../providers/utils/alert.service";
-import { Component } from "@angular/core";
-import { Camera } from "@ionic-native/camera";
-import { Storage } from "@ionic/storage";
-import { IonicPage } from "ionic-angular";
-import { NavController } from "ionic-angular";
-
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 import { UserServiceProvider } from "../../providers/user-service/user-service";
-import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @IonicPage()
 @Component({
@@ -16,30 +15,28 @@ import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
   templateUrl: "profile.html"
 })
 export class ProfilePage implements OnInit {
-  profilePicture: string;
-  profileRef: any;
-  errorMessage: any;
-  placeholderPicture = "https://api.adorable.io/avatar/200/bob";
+  public enableNotifications: boolean = true;
+  public placeholderPicture: string;
+  public profilePicture: string;
+  public paymentMethod: any;
+  public errorMessage: any;
+  public responseUser: any;
+  public language: string;
+  public currency: string;
+  public profileRef: any;
 
-  enableNotifications = true;
-  language: any;
-  currency: any;
-  paymentMethod: any;
-  responseUser: any;
+  public languages: any = ["English", "Portuguese", "French"];
+  public paymentMethods: any = ["Paypal", "Credit Card"];
+  public currencies: any = ["USD", "BRL", "EUR"];
 
-  languages = ["English", "Portuguese", "French"];
-  paymentMethods = ["Paypal", "Credit Card"];
-  currencies = ["USD", "BRL", "EUR"];
-
-  user = { id: "", name: "", imageUrl: "" };
+  public user: any = { id: "", name: "", imageUrl: "" };
 
   constructor(
-    public alertService: AlertService,
     public authService: AuthServiceProvider,
     public userService: UserServiceProvider,
+    public alertService: AlertService,
     public toastCtrl: ToastService,
     private navCtrl: NavController,
-    private storage: Storage,
     private camera: Camera
   ) {}
 
@@ -53,23 +50,19 @@ export class ProfilePage implements OnInit {
   }
 
   toggleNotifications() {
-    if (this.enableNotifications) {
-      this.toastCtrl.create("Notifications enabled.");
-    } else {
-      this.toastCtrl.create("Notifications disabled.");
-    }
+    this.enableNotifications
+      ? this.toastCtrl.create("Notifications enabled.")
+      : this.toastCtrl.create("Notifications disabled.");
   }
 
   updateImage(value) {
     this.profilePicture = "data:image/jpeg;base64," + value;
-    // Opção de adicionar no localStorage
-    localStorage.setItem("imageUrl", this.profilePicture);
-    // Opção de acicionar no storage do Ionic
-    this.storage.set("imageUrl", this.profilePicture);
-    // Colocando a nova imagem no objeto que é utilizado na view
     this.user.imageUrl = this.profilePicture;
-    // Persistindo no mock
-    this.userService.changePicture(this.user.id, this.profilePicture);
+    this.userService
+      .changePicture(this.user.id, this.profilePicture)
+      .subscribe(() =>
+        this.toastCtrl.create("Profile picture changed successfully!.")
+      );
   }
 
   openGallery(): void {

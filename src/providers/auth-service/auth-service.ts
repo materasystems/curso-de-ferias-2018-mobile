@@ -25,27 +25,24 @@ export class AuthServiceProvider {
     const token = this.getAccessToken();
     const httpOptions = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
         Authorization: token
       })
     };
     return httpOptions;
   }
 
-  public buildToken(credentials) {
-    // regra de criação
-    const token = btoa(`mobile:alunos`);
+  public buildApplicationToken() {
+    const token = btoa("mobile:alunos");
     return token;
-    // return "bW9iaWxlOmFsdW5vcw==";
   }
 
   public login(credentials): Observable<any> {
-    const user = this.buildToken(credentials);
+    const applicationToken = this.buildApplicationToken();
 
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Basic ${user}`
+        Authorization: `Basic ${applicationToken}`
       })
     };
     const params = new HttpParams()

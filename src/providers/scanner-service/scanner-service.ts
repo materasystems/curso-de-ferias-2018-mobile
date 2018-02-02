@@ -15,13 +15,15 @@ export class ScannerServiceProvider {
     this.accessToken = this.authService.getAccessToken();
   }
 
-  postData(id, disciplina) {
+  postData(classId, userId) {
     const httpOptions = this.authService.getHeader();
     const body = {
-      data: new Date(),
-      disciplina: disciplina,
-      aluno: id
+      data: new Date()
     };
-    return this.http.put(`${uri}/frequencia/${disciplina}/${id}`, body, httpOptions);
+    return this.http.put(
+      `${uri}/api/v1/frequencia/${classId}/${userId}`,
+      body,
+      httpOptions
+    );
   }
 }

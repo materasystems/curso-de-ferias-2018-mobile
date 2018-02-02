@@ -26,10 +26,6 @@ export class ScannerPage implements OnInit {
     this.userService.getUserData().then(res => (this.currentUser = res));
   }
 
-  scan2() {
-    this.scannerService.postData("1", "1").subscribe(res => console.log(res));
-  }
-
   scan() {
     const options = {
       preferFrontCamera: false,
@@ -50,11 +46,10 @@ export class ScannerPage implements OnInit {
         this.barcodeData = data;
         let leitura = atob(this.barcodeData);
         let objeto = JSON.parse(leitura);
-        
+
         const id = this.currentUser.id;
         const disciplina = objeto.id;
-        this.scannerService.postData(id, disciplina).subscribe(res => {
-          console.log(res);
+        this.scannerService.postData(disciplina, id).subscribe(res => {
           const alert = this.alertCtrl.create({
             title: "Scan Results",
             subTitle: "Presença realizada com sucesso!",
